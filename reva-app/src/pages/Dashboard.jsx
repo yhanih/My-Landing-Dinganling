@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
+import NotificationSettings from '../components/NotificationSettings';
 
 const Dashboard = () => {
   const { user, userRole, logout } = useAuth();
@@ -24,6 +25,7 @@ const Dashboard = () => {
     topCampaigns: []
   });
   const [loading, setLoading] = useState(true);
+  const [showNotifications, setShowNotifications] = useState(false);
 
   useEffect(() => {
     if (userRole === 'marketer') {
@@ -305,6 +307,37 @@ const Dashboard = () => {
                 )}
               </div>
             </div>
+            
+            {/* Notification Settings Section - Marketer */}
+            <div className="relative mt-6">
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-2xl blur opacity-25"></div>
+              <div className="relative bg-gray-900 rounded-2xl p-8">
+                <button
+                  onClick={() => setShowNotifications(!showNotifications)}
+                  className="w-full flex justify-between items-center text-white hover:text-cyan-400 transition-colors"
+                >
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    SMS Notifications
+                  </h3>
+                  <svg 
+                    className={`w-5 h-5 transform transition-transform ${showNotifications ? 'rotate-180' : ''}`} 
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {showNotifications && (
+                  <div className="mt-6">
+                    <NotificationSettings />
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         ) : (
           <div className="space-y-6">
@@ -432,6 +465,37 @@ const Dashboard = () => {
                       </button>
                     </div>
                   </>
+                )}
+              </div>
+            </div>
+            
+            {/* Notification Settings Section */}
+            <div className="relative mt-6">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-2xl blur opacity-25"></div>
+              <div className="relative bg-gray-900 rounded-2xl p-8">
+                <button
+                  onClick={() => setShowNotifications(!showNotifications)}
+                  className="w-full flex justify-between items-center text-white hover:text-purple-400 transition-colors"
+                >
+                  <h3 className="text-xl font-semibold flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    SMS Notifications
+                  </h3>
+                  <svg 
+                    className={`w-5 h-5 transform transition-transform ${showNotifications ? 'rotate-180' : ''}`} 
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {showNotifications && (
+                  <div className="mt-6">
+                    <NotificationSettings />
+                  </div>
                 )}
               </div>
             </div>
