@@ -127,45 +127,45 @@ function Testimonials() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <div className="py-24 bg-gradient-to-b from-black via-gray-900 to-black">
+    <div className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center px-4 py-1 mb-4 text-sm font-semibold text-cyan-400 bg-cyan-400/10 rounded-full border border-cyan-400/20">
-            <span className="mr-2">⭐</span> Trusted by 10,000+ Users
+          <div className="inline-flex items-center justify-center px-4 py-1 mb-4 text-sm font-semibold rounded-full bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">⭐ Trusted by 10,000+ Users</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Real Results from <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Real Users</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
             Join thousands of marketers and promoters who are transforming their business with REVA
           </p>
         </div>
 
         {/* Performance Metrics Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-cyan-400 mb-1">$2.4M+</div>
-            <div className="text-sm text-gray-400">Paid to Promoters</div>
+          <div className="text-center p-4 rounded-xl bg-gradient-to-r from-cyan-500/5 to-transparent border border-cyan-500/10">
+            <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent mb-1">$2.4M+</div>
+            <div className="text-sm text-slate-500">Paid to Promoters</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-1">450M+</div>
-            <div className="text-sm text-gray-400">Verified Clicks</div>
+          <div className="text-center p-4 rounded-xl bg-gradient-to-r from-purple-500/5 to-transparent border border-purple-500/10">
+            <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent mb-1">450M+</div>
+            <div className="text-sm text-slate-500">Verified Clicks</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-green-400 mb-1">3.8x</div>
-            <div className="text-sm text-gray-400">Average ROI</div>
+          <div className="text-center p-4 rounded-xl bg-gradient-to-r from-cyan-500/5 to-transparent border border-cyan-500/10">
+            <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-1">3.8x</div>
+            <div className="text-sm text-slate-500">Average ROI</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-pink-400 mb-1">99.9%</div>
-            <div className="text-sm text-gray-400">Uptime</div>
+          <div className="text-center p-4 rounded-xl bg-gradient-to-r from-purple-500/5 to-transparent border border-purple-500/10">
+            <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-1">99.9%</div>
+            <div className="text-sm text-slate-500">Uptime</div>
           </div>
         </div>
 
-        {/* Testimonial Carousel */}
+        {/* Testimonial Carousel with Gradient Border */}
         <div className="relative">
-          <div className="bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-purple-500/10 rounded-3xl p-1">
-            <div className="bg-gray-900 rounded-3xl p-8 md:p-12">
+          <div className="p-[1px] rounded-3xl bg-gradient-to-r from-cyan-500 to-purple-500">
+            <div className="bg-[#0a0a0a] rounded-3xl p-8 md:p-12">
               {/* Testimonial Content */}
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 {/* Left side - Quote and Rating */}
@@ -173,92 +173,94 @@ function Testimonials() {
                   {/* Rating Stars */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(currentTestimonial.rating)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                      </svg>
+                      <span key={i} className="text-cyan-400 text-xl">★</span>
                     ))}
                   </div>
-
-                  {/* Quote */}
-                  <blockquote className="text-xl md:text-2xl text-white font-medium mb-6 leading-relaxed">
-                    "{currentTestimonial.quote}"
-                  </blockquote>
-
-                  {/* Author Info */}
-                  <div className="flex items-center gap-4">
-                    <div className="text-4xl">{currentTestimonial.image}</div>
-                    <div>
-                      <div className="text-white font-semibold text-lg">{currentTestimonial.name}</div>
-                      <div className="text-gray-400">{currentTestimonial.role}</div>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className="text-2xl">{currentTestimonial.logo}</span>
-                        <span className="text-gray-300">{currentTestimonial.company}</span>
-                      </div>
-                    </div>
+                  
+                  {/* Quote with gradient accent */}
+                  <div className="relative">
+                    <span className="absolute -top-4 -left-2 text-6xl text-gradient bg-gradient-to-r from-cyan-500/20 to-purple-500/20 bg-clip-text text-transparent">"</span>
+                    <p className="text-xl md:text-2xl text-slate-200 leading-relaxed pl-6">
+                      {currentTestimonial.quote}
+                    </p>
                   </div>
 
-                  {/* User Type Badge */}
-                  <div className="inline-flex items-center mt-4 px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-300 border border-cyan-500/30">
-                    {currentTestimonial.type === 'marketer' ? '📊 Marketer' : '💰 Promoter'}
+                  {/* Author Info */}
+                  <div className="mt-8 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 p-[1px]">
+                      <div className="w-full h-full rounded-full bg-[#0a0a0a] flex items-center justify-center text-xl">
+                        {currentTestimonial.image}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-white">{currentTestimonial.name}</div>
+                      <div className="text-sm text-slate-400">
+                        {currentTestimonial.role} at {currentTestimonial.company}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Right side - Metrics */}
                 <div className="md:w-80">
-                  <div className="bg-gradient-to-br from-purple-500/10 to-cyan-500/10 rounded-2xl p-6 border border-purple-500/20">
-                    <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
-                      <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                      </svg>
-                      Key Results
-                    </h4>
-                    <div className="space-y-3">
-                      {Object.entries(currentTestimonial.metrics).map(([key, value]) => (
+                  <div className="bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-2xl p-6 border border-cyan-500/10">
+                    <div className="text-sm font-semibold text-slate-400 mb-4">KEY RESULTS</div>
+                    <div className="space-y-4">
+                      {Object.entries(currentTestimonial.metrics).map(([key, value], index) => (
                         <div key={key} className="flex justify-between items-center">
-                          <span className="text-gray-400 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}:</span>
-                          <span className="text-xl font-bold text-white">{value}</span>
+                          <span className="text-sm text-slate-500 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
+                          <span className="font-bold text-lg bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                            {value}
+                          </span>
                         </div>
                       ))}
+                    </div>
+                    
+                    {/* Type Badge */}
+                    <div className="mt-6 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                        {currentTestimonial.type === 'marketer' ? '📊 Marketer' : '💰 Promoter'}
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Navigation */}
-              <div className="flex items-center justify-between mt-8">
-                {/* Dots */}
+              {/* Navigation Controls */}
+              <div className="mt-8 flex items-center justify-between">
+                {/* Dots Indicator */}
                 <div className="flex gap-2">
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToTestimonial(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === currentIndex 
-                          ? 'w-8 bg-gradient-to-r from-cyan-400 to-purple-400' 
-                          : 'bg-gray-600 hover:bg-gray-500'
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentIndex
+                          ? 'w-8 bg-gradient-to-r from-cyan-400 to-purple-400'
+                          : 'bg-slate-700 hover:bg-slate-600'
                       }`}
                       aria-label={`Go to testimonial ${index + 1}`}
                     />
                   ))}
                 </div>
 
-                {/* Arrow Buttons */}
+                {/* Arrow Controls */}
                 <div className="flex gap-2">
                   <button
                     onClick={prevTestimonial}
-                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                    className="p-2 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all duration-300 group"
                     aria-label="Previous testimonial"
                   >
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
                   <button
                     onClick={nextTestimonial}
-                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                    className="p-2 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-purple-500/50 transition-all duration-300 group"
                     aria-label="Next testimonial"
                   >
-                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-slate-400 group-hover:text-purple-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </button>
@@ -268,16 +270,30 @@ function Testimonials() {
           </div>
         </div>
 
-        {/* Trusted By Section */}
-        <div className="mt-16">
-          <p className="text-center text-gray-400 mb-6">Trusted by leading companies worldwide</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {trustedCompanies.map((company, index) => (
-              <div key={index} className="flex items-center gap-2 text-gray-300">
-                <span className="text-2xl">{company.logo}</span>
-                <span className="font-semibold">{company.name}</span>
+        {/* Trusted Companies */}
+        <div className="mt-20">
+          <div className="text-center mb-8">
+            <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Trusted by Industry Leaders</p>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+            </div>
+            <div className="relative flex justify-center">
+              <div className="bg-black px-8">
+                <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                  {trustedCompanies.map((company, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-2 text-slate-600 hover:text-slate-400 transition-colors duration-300"
+                    >
+                      <span className="text-2xl opacity-60">{company.logo}</span>
+                      <span className="text-sm font-medium">{company.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
