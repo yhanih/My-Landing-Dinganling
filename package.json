@@ -1,21 +1,43 @@
 {
-  "name": "workspace",
+  "name": "reava-monorepo",
   "version": "1.0.0",
-  "description": "Reva is where sharing meets opportunity. It turns everyday links into powerful growth engines, rewarding real engagement and building trust between people and brands. Simple idea, bold execution.",
-  "main": "index.js",
+  "private": true,
+  "description": "Reava marketing landing and dashboard monorepo.",
+  "workspaces": [
+    "landing",
+    "dashboard",
+    "packages/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm-run-all --parallel dev:landing dev:dashboard",
+    "dev:landing": "npm --workspace landing run dev",
+    "dev:dashboard": "npm --workspace dashboard run dev",
+    "build": "npm-run-all build:landing build:dashboard",
+    "build:landing": "npm --workspace landing run build",
+    "build:dashboard": "npm --workspace dashboard run build",
+    "lint": "npm-run-all lint:landing lint:dashboard",
+    "lint:landing": "npm --workspace landing run lint",
+    "lint:dashboard": "npm --workspace dashboard run lint",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@supabase/supabase-js": "^2.58.0",
-    "autoprefixer": "^10.4.21",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@tailwindcss/vite": "^4.1.14",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.5.6",
-    "react-router-dom": "^7.9.3",
-    "styled-components": "^6.1.19",
+    "prettier": "^3.4.2",
     "tailwindcss": "^4.1.14",
-    "twilio": "^5.10.2"
+    "vite": "^7.1.7"
   }
 }

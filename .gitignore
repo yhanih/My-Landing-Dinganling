@@ -1,0 +1,13 @@
+node_modules
+pnpm-lock.yaml
+yarn.lock
+*.log
+.DS_Store
+dist-landing
+dist-dashboard
+.env
+.env.local
+.env.*
+coverage
+.idea
+.vscode
