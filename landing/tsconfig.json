@@ -1,0 +1,7 @@
+{
+  "extends": "../tsconfig.json",
+  "include": ["src", "vite.config.js", "tailwind.config.js"],
+  "compilerOptions": {
+    "baseUrl": "./"
+  }
+}
